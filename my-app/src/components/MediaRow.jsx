@@ -1,28 +1,54 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { mediaUrl } from '../utils/variables';
+import { useNavigate } from 'react-router-dom';
+import { useAuthentication } from '../hooks/apiHooks';
+import useForm from '../hooks/FormHooks';
 
-const MediaRow = ({ file }) => {
+const LoginForm = (props) => {
+  const { postLogin } = useAuthentication();
+  const navigate = useNavigate();
+
+  const initValues = {
+    username: '',
+    password: '',
+  };
+
+  const doLogin = async () => {
+    try {
+      const loginResult = await postLogin(inputs);
+      localStorage.setItem('userToken', loginResult.token);
+      navigate('/home');
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const { inputs, handleSubmit, handleInputChange } = useForm(
+    doLogin,
+    initValues
+  );
+
   return (
-    <tr>
-      <td>
-        <img src={mediaUrl + file.thumbnails.w160} alt={file.title} />
-      </td>
-      <td>
-        <h3>{file.title}</h3>
-        <p>{file.description}</p>
-      </td>
-      <td>
-        <Link to="/single" state={{ file }}>
-          View
-        </Link>
-      </td>
-    </tr>
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          name="username"
+          placeholder="Username"
+          onChange={handleInputChange}
+          value={inputs.username}
+        />
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          onChange={handleInputChange}
+          value={inputs.password}
+        />
+        <button type="submit">Login</button>
+      </form>
+    </>
   );
 };
 
-MediaRow.propTypes = {
-  file: PropTypes.object.isRequired,
-};
+LoginForm.propTypes = {};
 
-export default MediaRow;
+export default LoginForm;
