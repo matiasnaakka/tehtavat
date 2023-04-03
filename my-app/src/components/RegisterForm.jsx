@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import useForm from '../hooks/FormHooks';
-import { useUser } from '../hooks/ApiHooks';
+import { useUser } from '../hooks/apiHooks';
 
 const RegisterForm = (props) => {
   const { postUser, getCheckUser } = useUser();
