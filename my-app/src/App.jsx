@@ -5,6 +5,8 @@ import Layout from './views/Layout';
 import Single from './views/Single';
 import Profile from './views/Profile';
 
+<Router basename={import.meta.env.BASE_URL} />
+
 const App = () => {
   return (
     <Router>
