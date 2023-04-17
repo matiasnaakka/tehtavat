@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './views/Layout';
 import Single from './views/Single';
 import Profile from './views/Profile';
-import Login from './Views/Login';
+import Login from './views/Login';
 import { MediaProvider } from './contexts/MediaContext';
-import Logout from './Views/Logout';
-import Upload from './Views/Upload';
+import Logout from './views/Logout';
+import Upload from './views/Upload';
 
 console.log('base', import.meta.env.BASE_URL);
 
