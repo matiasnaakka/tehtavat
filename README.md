@@ -1,3 +1,3 @@
-# Viikko 2: forms
+# Upload
 
 open[https://users.metropolia.fi/~matian/mediapalvelut/upload/dist] (https://users.metropolia.fi/~matian/mediapalvelut/upload/dist) to view it in the browser.
