@@ -8,6 +8,8 @@ import Login from './views/Login';
 import { MediaProvider } from './contexts/MediaContext';
 import Logout from './views/Logout';
 
+console.log('base', import.meta.env.BASE_URL);
+
 const App = () => {
   return (
     <Router basename={import.meta.env.BASE_URL}>
